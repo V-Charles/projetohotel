@@ -1,11 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Senac - Hotel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    
+    <main>
+        <!-- Início cabeçalho -->
+        <header class="d-flex flex-column align-items-start" style="background: #76DEFF; padding: 5px;">
+            <div class="logo">
+                <img src="imagens/logo_hotel.png" alt="Logo Senac Hotel" class="img-fluid" style="width: 40%; margin: 20px;">
+            </div>
+        </header>
+        <!-- Fim cabeçalho -->
+    </main>
+
+    <!-- Início rodapé -->
+    <footer style="background: #76DEFF; color: white;" class="py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Título e descrição -->
+                <div class="col-md-6 mb-3 d-flex flex-column justify-content-center" style="min-height: 200px;">
+                    <h4 class="text-center">FAÇA SUA RESERVA</h4>
+                    <p class="text-center" style="line-height: 1.5;">
+                        Entre em contato conosco informando as datas desejadas.
+                        Lhe retornaremos informando a disponiilidade e repassando detalhes da reserva.
+                    </p>
+                </div>
+                <!-- Formulário -->
+                <div class="col-md-6">
+                    <form method="post" action="#">
+                        <div class="row">
+                            <!-- Primeira linha -->
+                            <div class="col-md-6 mb-3">
+                                <label for="txtNome" class="form-label">Nome</label>
+                                <input id="txtNome" class="form-control" type="text">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input id="email" class="form-control" type="text" required>
+                            </div>
+                            <!-- Segunda linha -->
+                            <div class="col-md-6 mb-3">
+                                <label for="dataEnt" class="form-label">Data de entrada</label>
+                                <input id="dataEnt" class="form-control" type="date">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="dataSai" class="form-label">Data de saída</label>
+                                <input id="dataSai" class="form-control" type="date">
+                            </div>
+                            <!-- Terceira linha -->
+                            <div class="row align-items-stretch">
+                                <div class="col-md-8 mb-3">
+                                    <label for="obs" class="form-label">Observações</label>
+                                    <textarea id="obs" class="form-control" style="width: 77%; height: 100px;"></textarea>
+                                </div>
+                                <div class="col-md-4 d-flex flex-column justify-content-start">
+                                    <div class="row justify-content-center">
+                                        <div class="col-5 mb-3">
+                                            <label for="qtdAdulto" class="form-label">Adultos</label>
+                                            <input id="qtdAdulto" class="form-control form-control-sm" type="number">
+                                        </div>
+                                        <div class="col-5 mb-3">
+                                            <label for="qtdCrianca" class="form-label">Crianças</label>
+                                            <input id="qtdCrianca" class="form-control form-control-sm" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-light btn-lg">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Fim rodapé -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
