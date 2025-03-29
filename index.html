@@ -143,5 +143,32 @@
     </footer>
     <!--Fim rodapé -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const reserva = {
+                nome: document.getElementById("txtNome").value,
+                email: document.getElementById("email").value,
+                dataEntrada: document.getElementById("dataEnt").value,
+                dataSaida: document.getElementById("dataSai").value,
+                observacoes: document.getElementById("obs").value,
+                adultos: parseInt(document.getElementById("qtdAdulto").value) || 0,
+                criancas: parseInt(document.getElementById("qtdCrianca").value) || 0
+            };
+
+            fetch("http://localhost:3000/reservas", {
+                method: "POST",
+                headers: { "content-Type": "application/json" },
+                body: JSON.stringify(reserva)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Reserva enviada com sucesso!");
+                document.querySelector("form").reset();
+            })
+            .catch(error => console.error("Erro ao enviar reserva:", error));
+        });
+    </script>
 </body>
 </html>

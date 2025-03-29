@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Reservas</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Reservas Realizadas</h2>
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Entrada</th>
+                    <th>Saída</th>
+                    <th>Adultos</th>
+                    <th>Crianças</th>
+                    <th>Observações</th>
+                </tr>
+            </thead>
+            <tbody id="reservasTableBody">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function carregarReservas() {
+            fetch("http://localhost:3000/reservas")
+            .then(response => response.json())
+            .then(reservas => {
+                const tabela = document.getElementById("reservasTableBody");
+                tabela.innerHTML = "";
+
+                reservas.forEach(reserva => {
+                    const linha = `
+                        <tr>
+                            <td>${reserva.nome}</td>
+                            <td>${reserva.email}</td>
+                            <td>${reserva.dataEntrada}</td>
+                            <td>${reserva.dataSaida}</td>
+                            <td>${reserva.adultos}</td>
+                            <td>${reserva.criancas}</td>
+                            <td>${reserva.observacoes}</td>
+                        </tr>
+                    `;
+                    tabela.innerHTML += linha;
+                });
+            })
+            .catch(error => console.error("Erro ao carregar reservas:", error));
+        }
+        window.onload = carregarReservas;
+    </script>
+</body>
+</html>
